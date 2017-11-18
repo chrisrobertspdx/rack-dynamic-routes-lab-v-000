@@ -12,6 +12,7 @@ class Application
       item = Item.items.find{|i| i.name == item_name}
       if !!item
         resp.write "#{item.name} cost #{item.price}"
+        resp.status = 200
       else
         resp.write "Item not found"
         resp.status = 400
