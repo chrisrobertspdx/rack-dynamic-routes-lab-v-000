@@ -9,8 +9,8 @@ class Application
 
     if req.path.match(/item/)
       item_name = req.path.split("/item/").last
-      item = Item.items.find{|i| i.name == item_name}
-      if !!item
+      my_item = Item.items.find{|i| i.name == item_name}
+      if !!my_item
         resp.write "#{item.name} cost #{item.price}"
         resp.status = 200
       else
