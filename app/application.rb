@@ -11,7 +11,7 @@ class Application
       item_name = req.path.split("/item/").last
       my_item = Item.items.find{|i| i.name == item_name}
       if !!my_item
-        resp.write "#{item.name} cost #{item.price}"
+        resp.write "#{my_item.name} cost #{my_item.price}"
         resp.status = 200
       else
         resp.write "Item not found"
