@@ -4,11 +4,11 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    @@item = [Item.new("Figs",3.42), Item.new("Pears",0.99)]
+    @@items = [Item.new("Figs",3.42), Item.new("Pears",0.99)]
 
     if req.path.match(/item/)
       item_name = req.path.split("/item/").last
-      if my_item = Item.items.find{|i| i.name == item_name}
+      if my_item = @@items.find{|i| i.name == item_name}
         resp.write "#{my_item.name} cost #{my_item.price}"
         # resp.status = 200
       else
