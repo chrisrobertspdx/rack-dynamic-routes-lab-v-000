@@ -4,8 +4,7 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    Item.new("Figs",3.42)
-    Item.new("Pears",0.99)
+    @@item = [Item.new("Figs",3.42), Item.new("Pears",0.99)]
 
     if req.path.match(/item/)
       item_name = req.path.split("/item/").last
