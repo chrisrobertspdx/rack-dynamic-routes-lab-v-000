@@ -6,4 +6,7 @@ class Item
     @price = price
     @@items << self
   end
+  def items
+    @@items
+  end
 end
